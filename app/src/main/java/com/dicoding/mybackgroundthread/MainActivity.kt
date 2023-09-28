@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.util.concurrent.Executor
@@ -24,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         btnStart.setOnClickListener {
             lifecycleScope.launch(Dispatchers.Default) {
                 for (i in 0..10) {
-                    Thread.sleep(500)
+                    delay(500)
                     val percentage = i * 10
                     withContext(Dispatchers.Main) {
                         if (percentage == 100) {
